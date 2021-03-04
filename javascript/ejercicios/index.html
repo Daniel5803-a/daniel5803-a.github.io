@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<head>
+	<title>Pagina web</title>
+    <style>
+        body {
+            margin:0;
+			background-color: #ddd;
+        }
+		ul {
+		  	list-style-type: none;
+		  	margin: 0;
+		 	padding: 0;
+		  	overflow: hidden;
+		  	background-color: #f3f3f3;
+		  	position: fixed;
+ 			top: 0;
+  			width: 100%;
+  			border: 1px solid #e7e7e7
+		}
+
+		li {
+		  	float: left;
+		}
+
+		li a {
+		  	display: block;
+		  	color: #333;
+		  	text-align: center;
+		  	padding: 14px 16px;
+		  	text-decoration: none;
+		}
+
+		li a:hover {
+		  	background-color: #999;
+		}
+
+		.active {
+		    background-color: #6dc071;
+		}
+
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            z-index: 0;
+        }
+
+        code {
+            background-color: #1e1e1e;
+            border: 1px solid #999;
+            display: block;
+            padding: 20px;
+            font-size: 18px;
+            color: #d4d4c8;
+            font-family: Consolas,monaco,monospace;
+        }
+
+        code span.var {
+            color: #569cd6;
+            font-style: normal;
+        }
+
+        code span.name {
+            color: #9cdcfe;
+            font-style: normal;
+        }
+
+        code span.func {
+            color: #dcdcaa;
+            font-style: normal;
+        }
+
+        code span.string {
+            color: #ce9178;
+            font-style: normal;
+        }
+
+        code span.char {
+            color: #d7ba7d;
+            font-style: normal;
+        }
+
+        code span.comment {
+            color: #6a9955;
+            font-style: normal;
+        }
+
+        code span.operator {
+            color: #c586c0;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+	<ul>
+		<li><a href="../../index.html">Home</a></li>
+		<li><a href="../../html_css/index.html">HTML/CSS</a></li>
+		<li><a class="active" href="../index.html">JavaScript</a></li>
+		<li style="float:right"><a href="#about">About</a></li>
+	</ul>
+
+    <div style="padding:20px;margin-top:30px;height:200px;padding-top: 35px">
+        <div id="ejercicio">
+            <h1>Ejercicio 1</h1>
+            <p>Escribe la edad y el color de pelo a traves de un script de JavaScript.</p>
+            <h3>Código:</h3>
+            <code>
+                <span class="var">var</span> <span class="name">edad</span> = <span class="string">"Tengo 14 a</span><span class="char">\u00f1</span><span class="string">os "</span> <span class="comment">// Se pone el \u00f1 para sustituir a la ñ</span> <br>
+                <span class="var">var</span> <span class="name">pelo</span> = <span class="string">"y tengo el pelo rubio."</span> <br>
+                <span class="name">document</span>.<span class="func">write</span>(<span  class="name">edad</span> + <span  class="name">pelo</span>) <br>
+            </code>
+            <a href="./ej1/index.html" target="_blank" class="button">Pruebalo</a>
+        </div>
+
+        <div id="ejercicio">
+            <h1>Ejercicio 2</h1>
+            <p>Pregunta al usuario por dos números y los suma.</p>
+            <h3>Código:</h3>
+            <code>
+                <span class="var">var</span> <span class="name">x</span> = <span class="func">prompt</span>(<span class="string">"Dime un n</span><span class="char">\u00FA</span><span class="string">mero"</span>) <span class="comment">// Se pone el \u00fA para sustituir a la ú</span> <br>
+                <span class="var">var</span> <span class="name">y</span> = <span class="func">prompt</span>(<span class="string">"Dime otro"</span>) <br>
+                <span class="var">var</span> <span class="name">suma</span> = <span class="name">x</span> + <span class="name">y</span> <br>
+                <span class="name">document</span>.<span class="func">write</span>(<span class="string">"La suma de los dos n</span><span class="char">\u00FA</span><span class="string">meros es "</span> + <span class="name">suma</span>) <br>
+            </code>
+            <a href="./ej2/index.html" target="_blank" class="button">Pruebalo</a>
+        </div>
+
+        <div id="ejercicio">
+            <h1>Ejercicio 3</h1>
+            <p>Pregunta al usuario por la edad y responde si es mayor de edad o no.</p>
+            <h3>Código:</h3>
+            <code>
+                <span class="var">var</span> <span class="name">edad</span> = <span class="func">parseInt</span>(<span class="func">prompt</span>(<span class="string">"Dime tu edad"</span>)) <br>
+                <span class="operator">if</span> (<span class="name">edad</span> >= 18)  <br>
+                { <br>
+                    &emsp;&emsp;&emsp;<span class="name">document</span>.<span class="func">write</span>(<span class="string">"Eres mayor de edad"</span>) <br>
+                } <br>
+                <span class="operator">else</span> <br>
+                { <br>
+                    &emsp;&emsp;&emsp;<span class="name">document</span>.<span class="func">write</span>(<span class="string">"No eres mayor de edad"</span>) <br>
+                } <br>
+            </code>
+            <a href="./ej3/index.html" target="_blank" class="button">Pruebalo</a>
+        </div>
+
+        <div id="ejercicio">
+            <h1>Ejercicio 4</h1>
+            <p>Pregunta al usuario si quiere ir a una página web y abre un link en una pestaña nueva si responde que si.</p>
+            <h3>Código:</h3>
+            <code>
+                <span class="operator">if</span> (<span class="func">confirm</span>("<span class="string"><span class="char">\u00bf</span>  Quieres ir a la P<span class="char">\u00e1</span>gina de Tecnologia?"</span>)) <br>
+                { <br>
+                    &emsp;&emsp;&emsp;<span class="name">window</span>.<span class="name">location</span> = <span class="string">"<u>https://www.areatecnologia.com</u>"</span> <span class="comment">// He uasdo window.location en vez de window.open() ya que window.open() no funciona en navegadores modernos</span> <br>
+                } <br>
+                <span class="operator">else</span>  <br>
+                { <br>
+                    &emsp;&emsp;&emsp;<span class="func">alert</span>(<span class="string">"Esta bien, nos quedamos aqui"</span>) <br>
+                } <br>
+
+            </code>
+            <a href="./ej4/index.html" target="_blank" class="button">Pruebalo</a>
+        </div>
+
+        <div id="ejercicio">
+            <h1>Ejercicio 5</h1>
+            <p>Juego que consiste en adivinar un número del 1 al 5.</p>
+            <h3>Código:</h3>
+            <code>
+                <span class="var">var</span> <span class="name">z</span> = 0 <br>
+                <span class="var">var</span> <span class="name">aleatorio</span> = <span class="name">Math</span>.<span class="func">floor</span>(<span class="name">Math</span>.<span class="func">random</span>()*5+1) <br>
+                <span class="var">var</span> <span class="name">i</span> = 1 <br>
+                <span class="operator">while</span> (i &#x3c;= 4) <br>
+                { <br>
+                    &emsp;&emsp;&emsp;<span class="var">var</span> <span class="name">numeroElegido</span> = <span class="func">parseInt</span>(<span class="func">prompt</span>(<span class="string">"<span class="char">\u00bf</span>Qu<span class="char">\u00e9</span> n<span class="char">\u00fa</span>mero es?"</span>)) <br>
+                    <br>
+                    &emsp;&emsp;&emsp;<span class="operator">if</span> (<span class="name">aleatorio</span> == <span class="name">numeroElegido</span>)  <br>
+                    &emsp;&emsp;&emsp;{ <br>
+                    &emsp;&emsp;&emsp;    &emsp;&emsp;&emsp;<span class="name">document</span>.<span class="func">write</span>(<span class="string">"<span class="char">\u00a1\u00a1\u00a1</span>Eres un fen<span class="char">\u00f3</span>meno, acertaste!!"</span> ) <br>
+                    &emsp;&emsp;&emsp;    &emsp;&emsp;&emsp;<span class="operator">break</span>; <br>
+                    &emsp;&emsp;&emsp;} <br>
+                    &emsp;&emsp;&emsp;<span class="operator">else</span> <br>
+                    &emsp;&emsp;&emsp;{ <br>
+                    &emsp;&emsp;&emsp;    &emsp;&emsp;&emsp;<span class="name">document</span>.<span class="func">write</span>(<span class="string">"Has fallado"</span> + <span class="string">"&#x3c;br&#x3e;"</span>) <br>
+                    &emsp;&emsp;&emsp;    &emsp;&emsp;&emsp;<span class="name">z</span> = <span class="name">z</span> + 1 <br>
+                    &emsp;&emsp;&emsp;} <br>
+                    <br>
+                    &emsp;&emsp;&emsp;<span class="operator">if</span> (<span class="name">z</span> == 4)  <br>
+                    &emsp;&emsp;&emsp;{ <br>
+                    &emsp;&emsp;&emsp;    &emsp;&emsp;&emsp;<span class="name">document</span>.<span class="func">write</span>(<span class="string">"<span class="char">\u00a1\u00a1\u00a1</span>Volviste a fallar y ya no tienes más intentos!!"</span> ) <br>
+                    &emsp;&emsp;&emsp;} <br>
+                    &emsp;&emsp;&emsp;<span class="name">i</span>++; <br>
+                } 
+            </code>
+            <a href="./ej5/index.html" target="_blank" class="button">Pruebalo</a>
+        </div>
+
+        <div id="ejercicio">
+            <h1>Ejercicio 6</h1>
+            <p>Cuestionario de 5 preguntas con contador de aciertos y tiempo. Este cuestionario no tiene preguntas tipo test sino que tiene ejercicios de ajedrez.</p>
+            <h3>Código:</h3>
+            <code>
+                <span class="comment">// No recomiendo ver el código de este ejercicio, da demasiado asco. Si quieres ver el código, haz click a este botón.</span>
+                
+                <a href="../puzzles.js" target="_blank" class="button">haha code go brrr</a>
+            </code>
+        </div>
+        <a href="../puzzles.html" target = "blank" class="button">Pruebalo</a>
+    </div>
+</body>

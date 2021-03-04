@@ -1,0 +1,147 @@
+var config = {
+    position: 'start',
+    draggable: true,
+    onDrop: onDrop,
+}
+
+var api = new LichessApi('fXPF3hzqm8qxvXgp')
+var game = new Chess();
+var board1 = Chessboard('board1', config)
+var isWhite = null
+var gameId = null
+
+params = {
+    level: 2,
+    color: 'random'
+}
+
+queryParams = new URLSearchParams(window.location.search)
+console.log(queryParams.get('id'))
+if (queryParams.get('id') != null)
+{
+    gameId = queryParams.get('id')
+
+    api.streamGameBoard(gameId, (data) =>{
+        if(data.type == "gameFull")
+        {
+            isWhite = (data.white.id != undefined);
+            board1.orientation(isWhite ? 'white' : 'black')
+            
+            queryParams.set("id", gameId)
+            history.replaceState('', '', window.location.href.split('?')[0] + '?' + queryParams.toString())
+
+            var g = new Chess()
+
+            gameMoves = data.state.moves.split(' ');
+            for(var i = 0; i < gameMoves.length; i++)
+            {
+                g.move(gameMoves[i], { sloppy: true })
+            }
+            
+            game = g
+            updateBoard(g.fen())
+        }
+
+        if(data.type == 'gameState')
+        {
+            var g = new Chess()
+
+            gameMoves = data.moves.split(' ')
+            for(var i = 0; i < gameMoves.length; i++)
+            {
+                g.move(gameMoves[i], { sloppy: true })
+            }
+            
+            game = g
+            updateBoard(g.fen())
+        }
+    })
+}
+else
+{
+api.challengeAI($.param(params))
+    .then((data) => {
+        gameId = data.data.id
+        api.streamEvents((event) => {
+            switch(event.type)
+            {
+                case "gameStart":
+                    console.log(gameId)
+                    if (event.game.id != gameId) break;
+                    api.streamGameBoard(gameId, (data) =>{
+                        if(data.type == "gameFull")
+                        {
+                            isWhite = (data.white.id != undefined);
+                            board1.orientation(isWhite ? 'white' : 'black')
+                            
+                            queryParams.set("id", gameId)
+                            queryParams.set("color", isWhite ? 'white' : 'black')
+                            history.replaceState('', '', window.location.href.split('?')[0] + '?' + queryParams.toString())
+                
+                            var g = new Chess()
+                
+                            gameMoves = data.state.moves.split(' ');
+                            for(var i = 0; i < gameMoves.length; i++)
+                            {
+                                g.move(gameMoves[i], { sloppy: true })
+                            }
+                            
+                            game = g
+                            updateBoard(g.fen())
+                        }
+                
+                        if(data.type == 'gameState')
+                        {
+                            var g = new Chess()
+                
+                            gameMoves = data.moves.split(' ')
+                            for(var i = 0; i < gameMoves.length; i++)
+                            {
+                                g.move(gameMoves[i], { sloppy: true })
+                            }
+                            
+                            game = g
+                            updateBoard(g.fen())
+                        }
+                    })
+                    break;
+
+                default:
+                    console.log('???')
+                    break;
+            }
+        })
+    });
+}
+
+function onDrop(source, target)
+{
+    if (game.turn() != (isWhite ? 'w' : 'b')) return 'snapback'
+
+    var move = game.move({
+        from: source,
+        to: target,
+        promotion: 'q' 
+    })
+    if (move === null) return 'snapback'
+
+    api.makeMoveBoard(gameId, source+target)
+}
+
+function updateBoard(fen)
+{
+    board1.position(fen);
+}
+
+function verboseToSloppy(move)
+{
+    if(move != null && move.from != null && move.to != null)
+    {
+        return move.from + move.to
+    }
+    else
+    {
+        console.log('\x1b[31m%s\x1b[0m', 'ERROR verboseToSloppy: ' + move)
+        return null
+    }
+}

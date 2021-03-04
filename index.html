@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<head>
+	<title>Pagina web</title>
+	<style>
+		body {
+			margin:0;
+			background-color: #ddd;
+		}
+		ul {
+		  	list-style-type: none;
+		  	margin: 0;
+		 	padding: 0;
+		  	overflow: hidden;
+		  	background-color: #f3f3f3;
+		  	position: fixed;
+ 			top: 0;
+  			width: 100%;
+  			border: 1px solid #e7e7e7
+		}
+
+		li {
+		  	float: left;
+		}
+
+		li a {
+		  	display: block;
+		  	color: #333;
+		  	text-align: center;
+		  	padding: 14px 16px;
+		  	text-decoration: none;
+		}
+
+		li a:hover {
+		  	background-color: #999;
+		}
+
+		.active {
+		    background-color: #6dc071;
+		}
+
+		.main_img {
+			display: block;
+			margin-left: auto;
+	  		margin-right: auto;
+	  		width: 50%;
+		}
+
+		@keyframes cf4FadeInOut {
+			0% {
+				opacity:1;
+			}
+			27.777% {
+			    opacity:1;
+			}
+			33.333% {
+			    opacity:0;
+			}
+			94.444% {
+			    opacity:0;
+			}
+			100% {
+			    opacity:1;
+			}
+		}
+
+		#cf4a {
+			display: block;
+			margin-left: auto;
+	  		margin-right: auto;
+	  		width: 50%;
+		}
+
+		#cf4a img {
+		  	position:absolute;
+		}
+
+		#cf4a img {
+			animation-name: cf4FadeInOut;
+			animation-timing-function: ease-in-out;
+			animation-iteration-count: infinite;
+			animation-duration: 18s;
+		}
+
+		#cf4a img:nth-of-type(1) {
+		  	animation-delay: 12s;
+		}
+		#cf4a img:nth-of-type(2) {
+		  	animation-delay: 6s;
+		}
+		#cf4a img:nth-of-type(3) {
+		  	animation-delay: 0s;
+		}
+
+		#title {
+			position: absolute;
+			width: 50%;
+			border: 3px solid green;
+			padding: 20px 0;
+			text-align: center;
+			background: #6dc071;
+	  		height: 100px;
+	  		left:50%;
+	  		bottom: 17%;
+	  		transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><a class="active" href="./index.html">Home</a></li>
+		<li><a href="./html_css/index.html">HTML/CSS</a></li>
+		<li><a href="./javascript/index.html">JavaScript</a></li>
+		<li style="float:right"><a href="#about">About</a></li>
+	</ul>
+	<div style="padding:20px;margin-top:30px;padding-top: 35px">
+		<div id="cf4a">
+			<img class="main_img" src="img1.jpg"/>
+			<img class="main_img" src="img2.jpg"/>
+			<img class="main_img" src="img3.jpg"/>
+		</div>
+	</div>
+
+	<div id="title">
+		<h1><b>Mi página web</b></h1>
+		<p><b>Aquí veras mis trabajos de TIC de 2º de bachillerato.</b></p>
+	</div>
+</body>

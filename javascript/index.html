@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+	<title>Pagina web</title>
+    <style>
+        body {
+			margin:0;
+			background-color: #ddd;
+		}
+		ul {
+		  	list-style-type: none;
+		  	margin: 0;
+		 	padding: 0;
+		  	overflow: hidden;
+		  	background-color: #f3f3f3;
+		  	position: fixed;
+ 			top: 0;
+  			width: 100%;
+  			border: 1px solid #e7e7e7
+		}
+
+		li {
+		  	float: left;
+		}
+
+		li a {
+		  	display: block;
+		  	color: #333;
+		  	text-align: center;
+		  	padding: 14px 16px;
+		  	text-decoration: none;
+		}
+
+		li a:hover {
+		  	background-color: #999;
+		}
+
+		.active {
+		    background-color: #6dc071;
+		}
+
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 22px;
+            margin: 4px 2px;
+            cursor: pointer;
+            z-index: 0;
+			font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .menu {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .background {
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            opacity: 0.7;
+        }
+
+        .pop-up {
+            position: absolute;
+			border: 3px solid #99dd9d;
+			padding: 20px 0;
+			text-align: center;
+			background: #99dd9d;
+	  		left: 50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%, 50%);
+        }
+
+        div[class = pop-up] ul {
+		  	list-style-type: none;
+		  	margin: 0;
+		 	padding: 0;
+			border-width: 0px;
+			border-bottom: none;
+		  	overflow: hidden;
+		  	background-color: #f3f3f3;
+		  	position: fixed;
+ 			top: 0;
+  			width: 100%;
+  			border: 1px solid #e7e7e7
+		}
+
+		div[class = pop-up] ul li {
+		  	float: left;
+		}
+
+		div[class = pop-up] ul li p  {
+		  	display: block;
+		  	color: #333;
+		  	text-align: center;
+		  	padding: 0px 20px;
+		  	text-decoration: none;
+		}
+ 
+		div[class = pop-up] ul li:hover{
+		  	background-color: #999999;
+		}
+
+		.option {
+			padding: 40px;
+			font-size: 20px;
+		}
+    </style>
+
+	<script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./index.js"></script>
+
+</head>
+<body>
+	<ul>
+		<li><a href="../index.html">Home</a></li>
+		<li><a href="../html_css/index.html">HTML/CSS</a></li>
+		<li><a class="active" href="./index.html">JavaScript</a></li>
+		<li style="float:right"><a href="#about">About</a></li>
+	</ul>
+
+    <div style="padding:20px;margin-top:30px;height:200px;padding-top: 35px; text-align: center;">
+        <button onclick="playButton()" class="button">Jugar</button> <br> <br>
+        <a href="puzzles.html" class="button">Puzles</a> <br> <br>
+        <a href="ejercicios/index.html" class="button">Ejercicios</a> <br> <br>
+        <div id="playMenu" class="menu"></div>
+		<button onclick="question()" class="button">Cuadro de diálogo</button>
+    </div>
+</body>
